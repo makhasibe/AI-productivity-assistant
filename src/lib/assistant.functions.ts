@@ -2,6 +2,12 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import type {
+  EmailOutput,
+  MeetingOutput,
+  PlannerOutput,
+  ResearchOutput,
+} from "./assistant-types";
 
 const emailInput = z.object({
   recipient: z.string().min(1),
@@ -75,7 +81,7 @@ export const generateEmail = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => emailInput.parse(input))
   .handler(async ({ data, context }) => {
     const { EMAIL_SYSTEM } = await import("./ai-prompts");
-    const output = await runWorkflow(async () => ({
+    const output = await runWorkflow<EmailOutput>(async () => ({
       system: EMAIL_SYSTEM,
       prompt: [
         `Recipient: ${data.recipient}`,
@@ -103,7 +109,7 @@ export const summarizeMeeting = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => meetingInput.parse(input))
   .handler(async ({ data, context }) => {
     const { MEETING_SYSTEM } = await import("./ai-prompts");
-    const output = await runWorkflow(async () => ({
+    const output = await runWorkflow<MeetingOutput>(async () => ({
       system: MEETING_SYSTEM,
       prompt: [
         `Meeting title: ${data.title || "not specified"}`,
@@ -128,7 +134,7 @@ export const planDay = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => plannerInput.parse(input))
   .handler(async ({ data, context }) => {
     const { PLANNER_SYSTEM } = await import("./ai-prompts");
-    const output = await runWorkflow(async () => ({
+    const output = await runWorkflow<PlannerOutput>(async () => ({
       system: PLANNER_SYSTEM,
       prompt: [
         `Date being planned: ${data.date || "today"}`,
@@ -155,7 +161,7 @@ export const runResearch = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => researchInput.parse(input))
   .handler(async ({ data, context }) => {
     const { RESEARCH_SYSTEM } = await import("./ai-prompts");
-    const output = await runWorkflow(async () => ({
+    const output = await runWorkflow<ResearchOutput>(async () => ({
       system: RESEARCH_SYSTEM,
       prompt: [
         `Topic: ${data.topic}`,
@@ -200,7 +206,7 @@ export const saveEditedOutput = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { error } = await context.supabase
       .from("generations")
-      .update({ output: data.output })
+      .update({ output: data.output as never })
       .eq("id", data.id);
     if (error) throw new Error(error.message);
     return { ok: true };
