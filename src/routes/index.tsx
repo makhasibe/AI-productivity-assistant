@@ -93,7 +93,7 @@ const EDUCATION = [
 
 const CERTIFICATES = [
   {
-    title: "Stay Ahead of the AI Curve",
+    title: "Google AI Essentials",
     org: "Google Career Certificate · Coursera",
     dates: "September 2026",
     verify: "https://coursera.org/verify/WEOV2WOAH3TT",
