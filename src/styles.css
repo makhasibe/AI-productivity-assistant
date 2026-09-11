@@ -66,6 +66,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-cream: var(--cream);
+  --color-cream-foreground: var(--cream-foreground);
+  --color-cream-muted: var(--cream-muted);
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
 }
 
 :root {
@@ -107,6 +117,45 @@
   --sidebar-accent-foreground: oklch(0.36 0.13 274);
   --sidebar-border: oklch(0.916 0.014 265);
   --sidebar-ring: oklch(0.5 0.19 274);
+  --gold: oklch(0.78 0.13 85);
+  --gold-soft: oklch(0.93 0.06 85);
+  --gold-ink: oklch(0.52 0.1 75);
+  --ink: oklch(0.2 0.012 265);
+  --ink-foreground: oklch(0.96 0.006 265);
+  --ink-muted: oklch(0.72 0.02 265);
+  --cream: oklch(0.98 0.008 80);
+  --cream-foreground: oklch(0.24 0.012 265);
+  --cream-muted: oklch(0.52 0.02 265);
+}
+
+@layer base {
+  .profile-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .profile-hero {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    border: 0 !important;
+  }
+  .profile-hero .hero-on-dark {
+    color: #1a1a1a !important;
+  }
+  .profile-hero .hero-gold-line {
+    background: #b8941f !important;
+  }
+  .profile-card {
+    box-shadow: none !important;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
 }
 
 .dark {

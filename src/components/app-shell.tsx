@@ -34,9 +34,6 @@ const NAV = [
   { to: "/", label: "Overview", icon: LayoutDashboard, blurb: "Start here" },
   { to: "/email", label: "Email writer", icon: Mail, blurb: "Draft in any tone" },
   { to: "/meetings", label: "Meeting notes", icon: NotebookPen, blurb: "Summary & actions" },
-  { to: "/planner", label: "Day planner", icon: CalendarClock, blurb: "Prioritised blocks" },
-  { to: "/research", label: "Research brief", icon: BookOpen, blurb: "Insights & advice" },
-  { to: "/chat", label: "Assistant", icon: MessagesSquare, blurb: "Ask anything" },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
