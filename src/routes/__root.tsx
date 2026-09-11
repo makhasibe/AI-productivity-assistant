@@ -78,17 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kestrel — AI Workplace Productivity Assistant" },
+      { title: "Zimbini Boqwana — Commis Chef & Messenger" },
       {
         name: "description",
         content:
-          "Draft email, summarise meetings, plan your day, research topics and chat with an AI assistant built for work.",
+          "Professional profile of Zimbini Boqwana: a Level 4 Professional Cookery graduate and experienced food-service professional seeking Commis Chef and Messenger roles in Cape Town.",
       },
-      { property: "og:title", content: "Kestrel — AI Workplace Productivity Assistant" },
+      { property: "og:title", content: "Zimbini Boqwana — Commis Chef & Messenger" },
       {
         property: "og:description",
         content:
-          "Five AI workflows in one workspace: email drafting, meeting notes, day planning, research briefs and a contextual assistant.",
+          "Professional profile of Zimbini Boqwana: a Level 4 Professional Cookery graduate and experienced food-service professional seeking Commis Chef and Messenger roles in Cape Town.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
